@@ -43,7 +43,6 @@ export class App extends Component {
     this.setState({ [name]: value });
   };
 
- 
   render() {
     const { contacts, filter } = this.state;
     const filterContacts = contacts.filter(contact =>
@@ -55,7 +54,7 @@ export class App extends Component {
         <ContactForm onSubmit={this.addContact} />
 
         <h2>Contacts</h2>
-        <Filter value={Filter} changeInput={this.changeInput} />
+        <Filter name={'filter'} changeInput={this.changeInput} />
         <ContactList
           contacts={filterContacts}
           deleteContact={this.deleteContact}
