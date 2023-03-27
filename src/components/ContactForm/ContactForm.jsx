@@ -5,7 +5,7 @@ import css from './ContactForm.module.css';
 export class ContactForm extends Component {
   render() {
     return (
-      <form addContact={this.props.addContact}>
+      <form onSubmit={this.props.onSubmit}>
         <label className={css.label}>
           Name
           <input
@@ -38,5 +38,5 @@ export class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  addContact: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };

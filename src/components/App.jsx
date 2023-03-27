@@ -19,7 +19,7 @@ export class App extends Component {
 
   addContact = ({ name, number }) => {
     this.setState(({ contacts }) => {
-      const isContact = contacts.find(contact => contact.name === name);
+      const isContact = contacts.find(contact => contact.name === name.value);
 
       if (isContact) {
         alert(`${name} is already in contact`);
@@ -53,10 +53,11 @@ export class App extends Component {
     const filterContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
+    
     return (
       <>
         <Section title="Phonebook">
-          <ContactForm addContact={this.addContact} />
+          <ContactForm onSubmit={this.addContact} />
         </Section>
         <Section title="Contacts">
           <Filter name={'filter'} changeInput={this.changeInput} />
