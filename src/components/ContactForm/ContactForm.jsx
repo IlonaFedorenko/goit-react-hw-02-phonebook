@@ -33,6 +33,7 @@ export class ContactForm extends Component {
         <label className={css.item}>
           Number
           <input
+            placeholder="000-00-00"
             type="tel"
             name="number"
             className={css.input}
