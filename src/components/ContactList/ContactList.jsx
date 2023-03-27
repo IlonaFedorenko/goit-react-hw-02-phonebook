@@ -11,17 +11,15 @@ export function ContactList({ contacts, deleteContact }) {
               <p>
                 {name}:{number}
               </p>
+              <button
+                className={css.button}
+                type="button"
+                onClick={() => deleteContact(id)}
+                value="delete"
+              >
+                Delete contact
+              </button>
             </li>
-            ;
-            <button
-              className={css.button}
-              type="button"
-              onClick={() => deleteContact(id)}
-              value="delete"
-            >
-              Delete contact
-            </button>
-            ;
           </>
         );
       })}

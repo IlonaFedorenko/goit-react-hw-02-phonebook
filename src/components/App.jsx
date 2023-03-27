@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
+import { Section } from './Section/Section';
 
 export class App extends Component {
   state = {
@@ -50,15 +51,16 @@ export class App extends Component {
     );
     return (
       <>
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.addContact} />
-
-        <h2>Contacts</h2>
-        <Filter name={'filter'} changeInput={this.changeInput} />
-        <ContactList
-          contacts={filterContacts}
-          deleteContact={this.deleteContact}
-        />
+        <Section title="Phonebook">
+          <ContactForm onSubmit={this.addContact} />
+        </Section>
+        <Section title="Contacts">
+          <Filter name={'filter'} changeInput={this.changeInput} />
+          <ContactList
+            contacts={filterContacts}
+            deleteContact={this.deleteContact}
+          />
+        </Section>
       </>
     );
   }

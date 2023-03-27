@@ -5,7 +5,7 @@ import css from './ContactForm.module.css';
 export class ContactForm extends Component {
   render() {
     return (
-      <form onSumbit={this.props.onSubmit}>
+      <form addContact={this.props.addContact}>
         <label className={css.label}>
           Name
           <input
@@ -37,5 +37,5 @@ export class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  addContact: PropTypes.func.isRequired,
 };
