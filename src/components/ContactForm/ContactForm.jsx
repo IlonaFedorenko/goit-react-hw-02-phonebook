@@ -21,6 +21,7 @@ export class ContactForm extends Component {
           Number
           <input
             className={css.input}
+            placeholder="000-00-00"
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

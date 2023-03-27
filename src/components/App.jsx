@@ -18,17 +18,21 @@ export class App extends Component {
   };
 
   addContact = ({ name, number }) => {
-    const contact = {
-      id: nanoid(),
-      name,
-      number,
-    };
     this.setState(({ contacts }) => {
-      const includeName = contacts.find(user => user.name === contact.name);
-      if (includeName) {
-        alert(`${contact.name} is already in contacs`);
+      const isContact = contacts.find(contact => contact.name === name);
+
+      if (isContact) {
+        alert(`${name} is already in contact`);
+        return contacts;
       } else {
-        return { contacts: [contact, ...contacts] };
+        const newContact = {
+          id: nanoid(),
+          name,
+          number,
+        };
+        return {
+          contacts: [newContact, ...contacts],
+        };
       }
     });
   };
@@ -52,7 +56,7 @@ export class App extends Component {
     return (
       <>
         <Section title="Phonebook">
-          <ContactForm onSubmit={this.addContact} />
+          <ContactForm addContact={this.addContact} />
         </Section>
         <Section title="Contacts">
           <Filter name={'filter'} changeInput={this.changeInput} />
